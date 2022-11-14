@@ -1,6 +1,8 @@
 package livrokotlin.com.br
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,6 +28,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //Remover item da lista
+        list_view_produtos.setOnItemLongClickListener() {adtp : AdapterView<*>, view : View, position: Int, id: Long ->
+            //buscando	o	item	clicado
+            val item = produtosAdpter.getItem(position)
+            //removendo	o	item	clicado	da	lista
+            produtosAdpter.remove(item)
+
+            //retorno indicando que	o  click foi realizado com sucesso
+            true
+        }
 
     }
 }
