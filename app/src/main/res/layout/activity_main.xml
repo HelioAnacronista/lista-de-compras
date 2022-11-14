@@ -8,4 +8,24 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_produto"
+        android:hint="Nome do produto">
+    </EditText>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_inserir"
+        android:text="inserir">
+    </Button>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_view_produtos">
+    </ListView>
+
 </LinearLayout>
