@@ -17,7 +17,13 @@ class MainActivity : AppCompatActivity() {
         //Interação do botão para add na lista
         btn_inserir.setOnClickListener {
             val produto = txt_produto.text.toString()
-            produtosAdpter.add(produto)
+
+            if (produto.isNotEmpty()) {
+                produtosAdpter.add(produto)
+                txt_produto.text.clear()
+            } else {
+                txt_produto.error = "Preencha um valor"
+            }
         }
 
 
