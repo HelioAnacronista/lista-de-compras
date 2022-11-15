@@ -10,10 +10,9 @@ import android.widget.TextView
 import java.text.NumberFormat
 import java.util.*
 
-class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0){
+class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-
         val v: View
 
         if (convertView != null) {
@@ -21,30 +20,24 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0){
         } else {
             v = LayoutInflater.from(context).inflate(R.layout.list_view_item, parent, false)
         }
+
         val item = getItem(position)
 
-        val txt_produto = v.findViewById<TextView>(R.id.txt_item_produto)
-        val txt_qtd = v.findViewById<TextView>(R.id.txt_qtd)
-        val txt_valor = v.findViewById<TextView>(R.id.txt_valor)
-        val img_produto = v.findViewById<ImageView>(R.id.img_item_foto)
+        val txtProduto = v.findViewById<TextView>(R.id.txt_item_produto)
+        val txtQtd = v.findViewById<TextView>(R.id.txt_item_qtd)
+        val txtValor = v.findViewById<TextView>(R.id.txt_item_valor)
+        val imgProduto = v.findViewById<ImageView>(R.id.img_item_foto)
 
+        txtQtd.text = item?.quantidade.toString()
+        txtProduto.text = item?.nome
+        txtValor.text = item?.valor.toString()
 
-        if (item != null) {
-            txt_qtd.text = item.quantidade.toString()
-        }
-        if (item != null) {
-            txt_produto.text = item.nome
-        }
-        if (item != null) {
-            val f = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
-            txt_valor.text = f.format(item.valor)
-        }
+        val f = NumberFormat.getCurrencyInstance(Locale("pt","br"))
+        txtValor.text = f.format(item?.valor)
 
-        if (item != null) {
-            if (item.foto != null) {
-                img_produto.setImageBitmap(item.foto)
-            }
-        }
+        if(item !=null)
+            imgProduto.setImageBitmap(item.foto)
+
         return v
     }
 
