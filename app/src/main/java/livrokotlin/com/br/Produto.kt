@@ -1,4 +1,4 @@
-package livrokotlin.com.br.domain.entities
+package livrokotlin.com.br
 
 import android.graphics.Bitmap
 

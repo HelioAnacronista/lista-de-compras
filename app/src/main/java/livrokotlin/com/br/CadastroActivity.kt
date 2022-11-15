@@ -3,9 +3,6 @@ package livrokotlin.com.br
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_cadastro.*
-import kotlinx.android.synthetic.main.activity_cadastro.view.*
-import livrokotlin.com.br.domain.entities.Produto
-import livrokotlin.com.br.domain.utils.produtosGlobal
 
 class CadastroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

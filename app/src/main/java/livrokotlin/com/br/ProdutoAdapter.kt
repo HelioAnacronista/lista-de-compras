@@ -1,4 +1,4 @@
-package livrokotlin.com.br.domain.Adapters
+package livrokotlin.com.br
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import livrokotlin.com.br.R
-import livrokotlin.com.br.domain.entities.Produto
 import java.text.NumberFormat
 import java.util.*
 
