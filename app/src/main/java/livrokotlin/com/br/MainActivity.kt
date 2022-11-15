@@ -1,5 +1,6 @@
 package livrokotlin.com.br
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -16,16 +17,10 @@ class MainActivity : AppCompatActivity() {
         val produtosAdpter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
         list_view_produtos.adapter = produtosAdpter
 
-        //Interação do botão para add na lista
-        btn_inserir.setOnClickListener {
-            val produto = txt_produto.text.toString()
-
-            if (produto.isNotEmpty()) {
-                produtosAdpter.add(produto)
-                txt_produto.text.clear()
-            } else {
-                txt_produto.error = "Preencha um valor"
-            }
+        btn_adicionar.setOnClickListener {
+            //Criando a Intant explicita
+            val intent = Intent(this, CadastroActivity::class.java)
+            startActivity(intent)
         }
 
         //Remover item da lista
