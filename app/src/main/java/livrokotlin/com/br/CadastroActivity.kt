@@ -2,6 +2,8 @@ package livrokotlin.com.br
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_cadastro.*
 
 class CadastroActivity : AppCompatActivity() {
@@ -9,44 +11,32 @@ class CadastroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
 
-        //definição	do	ouvinte	do	botão
-        btn_inserir.setOnClickListener {
-            //pegando	os	valores	digitados	pelo	usuário
-            val produto = txt_produto.text.toString()
-            val qtd = txt_qtd.text.toString()
-            val valor = txt_valor.text.toString()
+        val btnInserir = findViewById<Button>(R.id.btn_inserir)
 
-            //verificando	se	o	usuário	digitou	algum	valor
-            if (produto.isNotEmpty() && qtd.isNotEmpty() && valor.isNotEmpty()) {
-                val prod = Produto(produto, qtd.toInt(), valor.toDouble())
-                //add a variavel global
+        btnInserir.setOnClickListener {
+            val produto = findViewById<EditText>(R.id.txt_produto)
+            val qtd = findViewById<EditText>(R.id.txt_qtd)
+            val valor = findViewById<EditText>(R.id.txt_valor)
+
+            if (produto.text.isNotEmpty() && qtd.text.toString().isNotEmpty() && valor.text.toString()
+                    .isNotEmpty()
+            ) {
+                val prod = Produto(
+                    produto.text.toString(),
+                    qtd.text.toString().toInt(),
+                    valor.text.toString().toDouble()
+                )
                 produtosGlobal.add(prod)
-                //limpar caxinhas
-                txt_produto.text.clear()
-                txt_qtd.text.clear()
-                txt_valor.text.clear()
+
+                produto.text.clear()
+                qtd.text.clear()
+                valor.text.clear()
+
             } else {
-
-                txt_produto.error = if (txt_produto.text.isNotEmpty()) "Preencha o nome do produto" else null
-
-                txt_qtd.error = if (txt_qtd.text.isNotEmpty()) "Preencha a quantidade do produto" else null
-
-                txt_valor.error = if (txt_valor.text.isNotEmpty()) "Preencha o valor do produto" else null
+                produto.error = if (produto.text.isEmpty()) "Preencha o nome do produto" else null
+                qtd.error = if (qtd.text.isEmpty()) "Preencha a quantidade" else null
+                valor.error = if (valor.text.isEmpty()) "Preencha o valor" else null
             }
-
-            if (produto.isNotEmpty()) {
-
-                txt_produto.text.clear()
-            } else {
-                txt_produto.error = "Preencha um valor"
-            }
-
-
-
         }
-
-
-
-
     }
 }
