@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         val produtosAdpter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
         list_view_produtos.adapter = produtosAdpter
 
+        //Navegação para criaçao de produto
         btn_adicionar.setOnClickListener {
             //Criando a Intant explicita
             val intent = Intent(this, CadastroActivity::class.java)
