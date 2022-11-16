@@ -36,7 +36,7 @@ class ProdutoAdapter(contexto: Context) : ArrayAdapter<Produto>(contexto, 0) {
         txtValor.text = f.format(item?.valor)
 
         if(item !=null)
-            imgProduto.setImageBitmap(item.foto)
+            imgProduto.setImageDrawable(item.foto)
 
         return v
     }

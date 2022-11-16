@@ -16,14 +16,28 @@
         android:textSize="21sp"
         android:layout_marginBottom="15dp"
     ></TextView>
-    
+
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@android:drawable/ic_menu_camera"
         android:id="@+id/img_foto_produto"
+        android:layout_width="150dp"
+        android:layout_height="136dp"
         android:layout_gravity="center_horizontal"
-    ></ImageView>
+        android:src="@android:drawable/ic_menu_camera">
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecione a categoria do produto"
+        android:textStyle="bold"
+        android:textSize="21sp"
+        android:gravity="center"
+    ></TextView>
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        />
 
     <EditText
         android:layout_width="match_parent"
